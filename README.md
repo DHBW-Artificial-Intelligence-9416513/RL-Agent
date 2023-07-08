@@ -28,6 +28,14 @@
 
 ## Beschreibung des Projekts
 
+In der Vorlesung "Weiterführende Aspekte der Künstlichen Intelligenz" wurde das Thema Reinforcement Learning behandelt.
+Um ein besseres Verständnis, sowie eine grundlegen Praxiserfahrung mit dem Thema zu erlangen, wird in dieses Projekt ein
+RL-Agent implementiert, der in der Lage ist, eine Gym-Umgebung zu lösen. Dabei soll der Agent möglichst eine hohe
+Punktzahl (Reward) erreichen. Als Sekundärziel soll der Agent mithilfe von Torch implementiert werden. Als Gym-Umgebung
+wurde sich für die Umgebung **[LunarLander](https://gymnasium.farama.org/environments/box2d/lunar_lander/)**
+entschieden. Diese Umgebung wird zu Beginn des Projekts näher beschrieben. und anschließend werden die Ergebnisse des
+RL-Agents, für eine jeweilige Trainingsepisode Menge vorgestellt.
+
 ---
 
 ## Author und Kontaktinformationen des Erstellers
@@ -119,6 +127,7 @@ folgt:
 ```text
 |- RL-Agent
 |  |- data
+|  |  |- img_lunarlander
 |  |  |- videos_lunarlander
 |  |  |- .gitkeep
 |  |  |- lunar_lander_doku.gif
@@ -127,6 +136,11 @@ folgt:
 |  |  |  |- policy_net.pt
 |  |  |  |- target_net.pt
 |  |  |- lunarlander
+|  |  |  |- DQN_MODEL_100.pth
+|  |  |  |- DQN_MODEL_250.pth
+|  |  |  |- DQN_MODEL_500.pth
+|  |  |  |- DQN_MODEL_750.pth
+|  |  |  |- DQN_MODEL_1000.pth
 |  |  |- .gitkeep
 |  |- notebooks
 |  |  |- Hand-on-Coding-Gymnasium-Acrobot.ipynb
@@ -152,6 +166,9 @@ und **[venv](https://docs.python.org/3/library/venv.html)**.
 Alle drei Möglichkeiten werden im Folgenden beschrieben, setzen jedoch eine installierte Python-Version voraus (Dieses
 Projekt wurde mit Python 3.11.* entwickelt). Sollte noch keine passende Python-Version installiert sein, kann diese von
 der offiziellen **[Python-Website](https://www.python.org/downloads/)** heruntergeladen werden.
+
+**Beachte:** Es gibt neben den Abhängigkeiten des Projekts noch weitere Abhängigkeiten, welche durch das Operating
+System definiert werden. Bitte dazu entsprechend die Fehlermeldungen beachten.
 
 #### Installation mit pip
 
@@ -256,17 +273,44 @@ Verwendung der PyTorch Dokumentation/Tutorial ein überführung in meine Umgebun
 von den folgenden Quellen verwendet: [2],[3] Anders als jedoch in den Quellen, habe ich mich dazu entschieden, die
 Environment **['Acrobot-v1'](https://gymnasium.farama.org/environments/classic_control/acrobot/)** zu verwenden. Diese
 Environment ist ein einfaches Beispiel, welches sich gut für das
-Erlernen der Grundlagen geeignet hat. Der entsprechende Code kann in der folgenden Notebook gefunden
+Erlernen der Grundlagen geeignet hat. Der entsprechende Code kann in dem folgenden Notebook gefunden
 werden: [Hand-on-Coding-Gymnasium-Acrobot.ipynb](notebooks/Hand-on-Coding-Gymnasium-Acrobot.ipynb)
 
 Nachdem ich nun ein besseres Verständnis für die Implementierung von Reinforcement Learning Algorithmen mit PyTorch
 hatte, habe ich daran gesetzt das Projekt zu lösen.
 
+Zunächst musste ich in Erfahrung bringen, wie die Environment *
+*['LunarLander-v2'](https://gymnasium.farama.org/environments/box2d/lunar_lander/)** funktioniert. Dazu habe ich mir die
+Dokumentation der Environment durchgelesen und mir die entsprechenden Methoden und Attribute angeschaut. Zudem habe ich
+mir eine mögliche
+Lösung ([Chanseok Kang](https://goodboychan.github.io/python/reinforcement_learning/pytorch/udacity/2021/05/07/DQN-LunarLander.html))
+angeschaut, um ein besseres Verständnis für die Environment zu bekommen. Nachdem ich nun ein besseres Verständnis für
+die Environment hatte, habe ich mich daran gesetzt, die entsprechenden Klassen für das Projekt zu entwickeln. Dabei habe
+ich mich an der Dokumentation von PyTorch, sowie den Tutorial orientiert und die entsprechenden Klassen entwickelt. Der
+Code kann in dem folgenden Notebook gefunden werden: [LunarLander-2.0.ipynb](notebooks/LunarLander-2.0.ipynb) (
+**Beachte:** Der Code stammt teilweise aus der Quelle [4])
+
 ---
 
 ## Ergebnisse des Projekts
 
+Im Folgenden werden die Ergebnisse des Projekts dargestellt. Dabei wird zunächst auf die Ergebnisse des Modells für die
+Umgebung **['LunarLander-v2'](https://gymnasium.farama.org/environments/box2d/lunar_lander/)** eingegangen.
+Grundsätzlich lässt sich sagen, dass mein trainiertes Modell besser abschneidet als das Original
+von [Chanseok Kang](https://goodboychan.github.io/python/reinforcement_learning/pytorch/udacity/2021/05/07/DQN-LunarLander.html).
+Das lässt sich sagen, da mein Modell schneller einen Average-Score größer als 200 erreicht hat. Nahezu 10% (ca. 175
+Episoden) früher als das Vergleichsmodell. Zudem ist mein Modell in der Lage einen Score von 300 zu erreichen, was das
+Vergleichsmodell nicht schafft.
+Die einzelnen Ergebnisse können in der nachfolgenden Visualisation eingesehen werden.
+
 ### Visualisierung der Ergebnisse
+
+In der nachfolgenden Tabelle werden die Ergebnisse des Modells für die Umgebung
+**['LunarLander-v2'](https://gymnasium.farama.org/environments/box2d/lunar_lander/)** für jeweilige Trainingsepochen
+dargestellt.
+Man findet in der Tabelle die Lernkurve des Modells, sowie ein Video des Modells, welches die Validierung des Modells
+darstellt. Es ist jedoch zu beachten, dass die Videos nur eine Epoche abbilden und somit nicht die gesamte Qualität des
+Modells darstellen müssen.
 
 | Lernfortschritt                                                                                                                                                                                                                                                                                                                                                       | Video des Modells zur Validierung                                                                 |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
@@ -275,11 +319,21 @@ hatte, habe ich daran gesetzt das Projekt zu lösen.
 | ![alt](D:\DHBW\JetBrains\RL-Agent\data\img_lunarlander\DQN_MODEL_500.png "Darstellung des Lernvorschritts in den ersten 500 Episoden")<br/>Darstellung des Lernvorschritts in den ersten 500 Episoden. Es kam zu einzelnen erfolgreichen Simulationen (da Score Teilweise über 200), jedoch ist erkennbar das der Score ab Episode 450 wieder abnahm.                 | ![LunarLander-v2_DQN_MODEL_500.gif](data%2Fvideos_lunarlander%2FLunarLander-v2_DQN_MODEL_500.gif) |
 | ![alt](D:\DHBW\JetBrains\RL-Agent\data\img_lunarlander\DQN_MODEL_750.png "Darstellung des Lernvorschritts in den ersten  Episoden")<br/>Darstellung des Lernvorschritts in den ersten 250 Episoden. Ab Episode 686 erzielt der Agent ein Durchschnitt-Score von über 200. Wodurch sich sagen lässt, dass der Agent nun verstanden hat, wie er den Lander landen kann. | ![LunarLander-v2_DQN_MODEL_500.gif](data%2Fvideos_lunarlander%2FLunarLander-v2_DQN_MODEL_750.gif) |                                                                                                                                                                                                                                                                                                                                                              |                                   |
 
-### Bewertung der Ergebnisse
-
 ---
 
 ## Fazit des Projekts
+
+Durch das Projekt konnte ich ein besseres Verständnis für die Entwicklung von Reinforcement Learning Algorithmen
+entwickeln, im Besonderen für DQN-Netzwerken. Zudem konnte ich mich mit der PyTorch Bibliothek auseinandersetzen und
+einige praktische Übungen durchführen. Das Projekt hat mir gezeigt, dass es nicht immer einfach ist, ein Modell zu
+entwickeln und die Umgebungen auch kein einheitliches Verhalten aufweisen. So ist es mir nicht gelungen, ein Modell für
+die Umgebung **['Blackjack-v1'](https://gymnasium.farama.org/environments/toy_text/blackjack/)** zu entwickeln. Dies
+liegt daran, dass die Umgebung nicht einheitlich ist und somit das Modell nicht in der Lage ist, ein einheitliches
+Verhalten zu erlernen. Dieses Problem ist auch in der Literatur bekannt und wird als **Sparse Rewards** bezeichnet.
+
+Wenn man an den Ergebnissen des Modells für die Umgebung etwas optimieren möchte, so könnte man die Hyperparameter
+anpassen oder aber ein anderer RL-Algorithmus, wie zum Beispiel durch Proximal Policy Optimization (PPO) lösen. Eine
+mögliche Lösung kann unter den [folgenden Linkfolgenden Link](https://pylessons.com/LunarLander-v2-PPO) gefunden werden.
 
 ---
 
@@ -290,6 +344,7 @@ Das Projekt wurde mit folgenden Quellen entwickelt:
 - [1] [OpenAI Gym](https://gym.openai.com/)
 - [2] [Gymnasium](https://gymnasium.farama.org/)
 - [3] [PyTorch DQN-Tutorial](https://pytorch.org/tutorials/intermediate/reinforcement_q_learning.html)
+- [4] [Deep Q-Network (DQN) on LunarLander-v2](https://goodboychan.github.io/python/reinforcement_learning/pytorch/udacity/2021/05/07/DQN-LunarLander.html)
 
 ---
 
