@@ -78,7 +78,7 @@ häufig die Triebwerke zu zünden.
 
 Darstellung der Umgebung:
 <p align="center">
-  <img width="460" height="300" src="./data/lunarlander_doku.gif">
+  <img width="460" height="300" src="https://github.com/DHBW-Artificial-Intelligence-9416513/RL-Agent/blob/4643ce51d1e685bbbd021aea8a61b9a68d0f12f8/data/lunar_lander_doku.gif">
 </p>
 
 
