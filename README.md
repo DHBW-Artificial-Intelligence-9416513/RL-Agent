@@ -40,9 +40,10 @@ selbständig entwickelt und eingereicht.
 
 ## Zielsetzung des Projekts
 
-Die Zielsetzung des Projekts ist es, einen RL-Agenten zu implementieren, der in der Lage ist, die Gym-Umgebung *
-*[<Name der Umgebung>](<Link zur Umgebung>)** zu lösen. Dabei soll der Agent möglichst eine hohe Punktzahl (Reward)
-erreichen. Als Sekundärziel wollte ich mich explizit mit der Implementierung von *DQN* und *DDQN* beschäftigen und diese
+Die Zielsetzung des Projekts ist es, einen RL-Agenten zu implementieren, der in der Lage ist, die Gym-Umgebung 
+**[LunarLander](https://gymnasium.farama.org/environments/box2d/lunar_lander/)** zu lösen. Dabei soll der Agent möglichst
+eine hohe Punktzahl (Reward)
+erreichen. Als Sekundärziel wollte ich mich explizit mit der Implementierung von *DQN-Agenten* beschäftigen und diese
 durch **[Torch](https://pytorch.org/)** umsetzen.
 
 ---
@@ -62,7 +63,7 @@ zwei Fahnen landen. Der Lander kann durch die folgenden Aktionen gesteuert werde
 | 2     | Hauptmotor zünden    |
 | 3     | Rechten Motor zünden |
 
-Damit handelt es sich um eine diskrete Aktionsspace. Der Zustand des Lander wird durch einen 8-dimensionalen Vektor
+Damit handelt es sich um eine diskrete Actionsspace. Der Zustand des Lander wird durch einen 8-dimensionalen Vektor
 beschrieben, welcher laut der Dokumentation folgende Werte enthält:
 
 | Index | Beschreibung                                     |
