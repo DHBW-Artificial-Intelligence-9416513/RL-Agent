@@ -40,8 +40,9 @@ selbständig entwickelt und eingereicht.
 
 ## Zielsetzung des Projekts
 
-Die Zielsetzung des Projekts ist es, einen RL-Agenten zu implementieren, der in der Lage ist, die Gym-Umgebung 
-**[LunarLander](https://gymnasium.farama.org/environments/box2d/lunar_lander/)** zu lösen. Dabei soll der Agent möglichst
+Die Zielsetzung des Projekts ist es, einen RL-Agenten zu implementieren, der in der Lage ist, die Gym-Umgebung
+**[LunarLander](https://gymnasium.farama.org/environments/box2d/lunar_lander/)** zu lösen. Dabei soll der Agent
+möglichst
 eine hohe Punktzahl (Reward)
 erreichen. Als Sekundärziel wollte ich mich explizit mit der Implementierung von *DQN-Agenten* beschäftigen und diese
 durch **[Torch](https://pytorch.org/)** umsetzen.
@@ -118,7 +119,9 @@ folgt:
 ```text
 |- RL-Agent
 |  |- data
+|  |  |- videos_lunarlander
 |  |  |- .gitkeep
+|  |  |- lunar_lander_doku.gif
 |  |- models
 |  |  |- acrobot
 |  |  |  |- policy_net.pt
@@ -264,6 +267,13 @@ hatte, habe ich daran gesetzt das Projekt zu lösen.
 ## Ergebnisse des Projekts
 
 ### Visualisierung der Ergebnisse
+
+| Lernfortschritt                                                                                                                                                                                                                                                                                                                                                                            | Video des Modells zur Validierung |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------|
+| <img alt="alt" src="D:\DHBW\JetBrains\RL-Agent\data\img_lunarlander\DQN_MODEL_100.svg" title="Darstellung des Lernvorschritts in den ersten 100 Episoden"/><br/>Darstellung des Lernvorschritts in den ersten 100 Episoden. Es ist ersichtlich, dass kein Score über 0 gekommen ist, was ein Indiz dafür ist, dass es noch keine erfolgreiche Simulationen gab.                            |                                   |
+| <img alt="alt" src="D:\DHBW\JetBrains\RL-Agent\data\img_lunarlander\DQN_MODEL_250.svg" title="Darstellung des Lernvorschritts in den ersten 250 Episoden"/><br/>Darstellung des Lernvorschritts in den ersten 250 Episoden. Der Score nähert sich langsam den Null-Wert an, was bedeutet, dass die Strafen sich bei den Agenten reduziert hat.                                             |                                   |
+| <img alt="alt" src="D:\DHBW\JetBrains\RL-Agent\data\img_lunarlander\DQN_MODEL_500.svg" title="Darstellung des Lernvorschritts in den ersten 500 Episoden"/><br/>Darstellung des Lernvorschritts in den ersten 500 Episoden. Es kam zu einzelnen erfolgreichen Simulationen (da Score Teilweise über 200), jedoch ist erkennbar das der Score ab Episode 450 wieder abnahm.                 |                                   |
+| <img alt="alt" src="D:\DHBW\JetBrains\RL-Agent\data\img_lunarlander\DQN_MODEL_750.svg" title="Darstellung des Lernvorschritts in den ersten  Episoden"/><br/>Darstellung des Lernvorschritts in den ersten 250 Episoden. Ab Episode 686 erzielt der Agent ein Durchschnitt-Score von über 200. Wodurch sich sagen lässt, dass der Agent nun verstanden hat, wie er den Lander landen kann. |                                   |                                                                                                                                                                                                                                                                                                                                                              |                                   |
 
 ### Bewertung der Ergebnisse
 

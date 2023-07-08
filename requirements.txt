@@ -1,0 +1,8 @@
+gym
+jupyter
+matplotlib
+moviepy
+numpy
+pyopengl
+pygame
+torch
