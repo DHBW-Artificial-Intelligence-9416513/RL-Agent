@@ -55,28 +55,34 @@ Ziel dieser Umgebung ist es, einen Lander auf dem Mond zu landen. Dabei muss der
 aufsetzen und darf nicht zu schnell fliegen. Zudem muss er es ohne viele Zündungen erreichen, ebenso soll er zwischen
 zwei Fahnen landen. Der Lander kann durch die folgenden Aktionen gesteuert werden:
 
-0. Nichts tun
-1. Linken Motor zünden
-2. Hauptmotor zünden
-3. Rechten Motor zünden
+| Index | Beschreibung         |
+|-------|----------------------|
+| 0     | Nichts tun           |
+| 1     | Linken Motor zünden  |
+| 2     | Hauptmotor zünden    |
+| 3     | Rechten Motor zünden |
 
 Damit handelt es sich um eine diskrete Aktionsspace. Der Zustand des Lander wird durch einen 8-dimensionalen Vektor
 beschrieben, welcher laut der Dokumentation folgende Werte enthält:
 
-1. x-Position des Lander
-2. y-Position des Lander
-3. x-Geschwindigkeit des Lander
-4. y-Geschwindigkeit des Lander
-5. Winkel des Lander
-6. Winkelgeschwindigkeit des Lander
-7. True, wenn linkes Bein Kontakt hat, sonst False
-8. True, wenn rechtes Bein Kontakt hat, sonst False
+| Index | Beschreibung                                     |
+|-------|--------------------------------------------------|
+| 0     | x-Position des Lander                            |
+| 1     | y-Position des Lander                            |
+| 2     | x-Geschwindigkeit des Lander                     |
+| 3     | y-Geschwindigkeit des Lander                     |
+| 4     | Winkel des Lander                                |
+| 5     | Winkelgeschwindigkeit des Lander                 |
+| 6     | True, wenn linkes Bein Kontakt hat, sonst False  |
+| 7     | True, wenn rechtes Bein Kontakt hat, sonst False |
 
 Damit handelt es sich um einen kontinuierlichen Zustandsraum. Die Umgebung ist gelöst, wenn der Lander mit einem Score
 von 200 oder mehr landet. Um diese Punktzahl zu erreichen, muss der Länder sanft auf dem Boden aufsetzen, ohne zu allzu
 häufig die Triebwerke zu zünden.
 
-Darstellung der Umgebung:
+<p align="center">
+Darstellung der Umgebung: LunarLander
+</p>
 <p align="center">
   <img width="460" height="300" src="https://github.com/DHBW-Artificial-Intelligence-9416513/RL-Agent/blob/4643ce51d1e685bbbd021aea8a61b9a68d0f12f8/data/lunar_lander_doku.gif">
 </p>
