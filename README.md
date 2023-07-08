@@ -49,7 +49,38 @@ durch **[Torch](https://pytorch.org/)** umsetzen.
 
 ## Beschreibung der Gym-Umgebung
 
-Im Rahmen des Projekts habe ich mich für die Gym-Umgebung **[<Name der Umgebung>](<Link zur Umgebung>)** entschieden.
+Im Rahmen des Projekts habe ich mich für die Gym-Umgebung
+**[LunarLander](https://gymnasium.farama.org/environments/box2d/lunar_lander/)** entschieden.
+Ziel dieser Umgebung ist es, einen Lander auf dem Mond zu landen. Dabei muss der Lander möglichst sanft auf dem Boden
+aufsetzen und darf nicht zu schnell fliegen. Zudem muss er es ohne viele Zündungen erreichen, ebenso soll er zwischen
+zwei Fahnen landen. Der Lander kann durch die folgenden Aktionen gesteuert werden:
+
+0. Nichts tun
+1. Linken Motor zünden
+2. Hauptmotor zünden
+3. Rechten Motor zünden
+
+Damit handelt es sich um eine diskrete Aktionsspace. Der Zustand des Lander wird durch einen 8-dimensionalen Vektor
+beschrieben, welcher laut der Dokumentation folgende Werte enthält:
+
+1. x-Position des Lander
+2. y-Position des Lander
+3. x-Geschwindigkeit des Lander
+4. y-Geschwindigkeit des Lander
+5. Winkel des Lander
+6. Winkelgeschwindigkeit des Lander
+7. True, wenn linkes Bein Kontakt hat, sonst False
+8. True, wenn rechtes Bein Kontakt hat, sonst False
+
+Damit handelt es sich um einen kontinuierlichen Zustandsraum. Die Umgebung ist gelöst, wenn der Lander mit einem Score
+von 200 oder mehr landet. Um diese Punktzahl zu erreichen, muss der Länder sanft auf dem Boden aufsetzen, ohne zu allzu
+häufig die Triebwerke zu zünden.
+
+Darstellung der Umgebung:
+<p align="center">
+  <img width="460" height="300" src="./data/lunarlander_doku.gif">
+</p>
+
 
 ---
 
@@ -209,8 +240,10 @@ nie PyTorch für die Entwicklung von Machine-Learning Projekten verwendet habe, 
 von Reinforcement Learning und PyTorch auseinandergesetzt. Dazu habe ich zunächst mit einem einfachen Beispiel und unter
 Verwendung der PyTorch Dokumentation/Tutorial ein überführung in meine Umgebung durchgeführt. Dabei habe ich den Code
 von den folgenden Quellen verwendet: [2],[3] Anders als jedoch in den Quellen, habe ich mich dazu entschieden, die
-Environment **['Acrobot-v1'](https://gymnasium.farama.org/environments/classic_control/acrobot/)** zu verwenden. Diese Environment ist ein einfaches Beispiel, welches sich gut für das
-Erlernen der Grundlagen geeignet hat. Der entsprechende Code kann in der folgenden Notebook gefunden werden: [Hand-on-Coding-Gymnasium-Acrobot.ipynb](notebooks/Hand-on-Coding-Gymnasium-Acrobot.ipynb)
+Environment **['Acrobot-v1'](https://gymnasium.farama.org/environments/classic_control/acrobot/)** zu verwenden. Diese
+Environment ist ein einfaches Beispiel, welches sich gut für das
+Erlernen der Grundlagen geeignet hat. Der entsprechende Code kann in der folgenden Notebook gefunden
+werden: [Hand-on-Coding-Gymnasium-Acrobot.ipynb](notebooks/Hand-on-Coding-Gymnasium-Acrobot.ipynb)
 
 Nachdem ich nun ein besseres Verständnis für die Implementierung von Reinforcement Learning Algorithmen mit PyTorch
 hatte, habe ich daran gesetzt das Projekt zu lösen.
